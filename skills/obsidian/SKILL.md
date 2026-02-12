@@ -22,6 +22,18 @@ metadata:
               "label": "Install Obsidian CLI via AppImage",
               "command": "wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.11.7/Obsidian-1.11.7.AppImage && chmod +x Obsidian-1.11.7.AppImage",
             },
+            {
+              "id": "macos",
+              "kind": "download",
+              "label": "Install Obsidian on macOS",
+              "command": "brew install --cask obsidian",
+            },
+            {
+              "id": "windows",
+              "kind": "download",
+              "label": "Install Obsidian on Windows",
+              "command": "winget install Obsidian.Obsidian",
+            },
           ],
       },
   }
@@ -68,6 +80,35 @@ chmod +x Obsidian-1.11.7.AppImage
 ```bash
 # Create symlink manually (requires sudo)
 sudo ln -s /path/to/obsidian /usr/local/bin/obsidian
+```
+
+### 4. macOS Installation
+
+**Download from official website:**
+1. Download Obsidian from https://obsidian.md
+2. Drag Obsidian to your Applications folder
+3. Install and launch Obsidian at least once
+
+**Register CLI:**
+```bash
+# Create symlink (adjust path as needed)
+sudo ln -s "/Applications/Obsidian.app/Contents/MacOS/Obsidian" /usr/local/bin/obsidian
+```
+
+### 5. Windows Installation
+
+**Download from official website:**
+1. Download Obsidian installer from https://obsidian.md
+2. Run the installer (.exe or .msi)
+3. Install and launch Obsidian at least once
+
+**Add to PATH (PowerShell as Administrator):**
+```powershell
+# Find Obsidian installation path (typically)
+$obsidianPath = "$env:LOCALAPPDATA\Obsidian\Obsidian.exe"
+
+# Add to PATH (or use full path in commands)
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$obsidianPath", "User")
 ```
 
 ## Quick Start
